@@ -12,16 +12,12 @@ is configured correctly before setting up DNS.
 
 ## Installation
 
-Run:
+Run: `make install`
+
+Pass `prefix` to specify a location:
 
 ```sh
-make install
-```
-
-Pass PREFIX to specify a location:
-
-```sh
-make PREFIX=/some/path install
+make prefix=/some/path install
 ```
 
 ## Examples

@@ -3,10 +3,12 @@ BATS = bats
 SCDOC = scdoc
 SHELLCHECK = shellcheck
 
-PREFIX ?= /usr/local
-INSTALLDIR = $(DESTDIR)$(PREFIX)
-BINDIR ?= $(INSTALLDIR)/bin
-MANDIR ?= $(INSTALLDIR)/share/man
+prefix ?= /usr/local
+_installdir = $(DESTDIR)$(prefix)
+bindir ?= $(_installdir)/bin
+datarootdir ?= $(_installdir)/share
+mandir ?= $(datarootdir)/man
+man1dir ?= $(mandir)/man1
 
 .DEFAULT_GOAL = default
 .PHONY: default install check analyze test man
@@ -20,9 +22,10 @@ default:
 	@echo "make man      - Rebuild the man page (requires scdoc)."
 
 install:
-	mkdir -p $(BINDIR) $(MANDIR)/man1
-	install -m755 curl-resolve $(BINDIR)/curl-resolve
-	install -m644 curl-resolve.1 $(MANDIR)/man1/curl-resolve.1
+	test -e $(_installdir)
+	mkdir -p $(bindir) $(man1dir)
+	install -m755 curl-resolve $(bindir)/curl-resolve
+	install -m644 curl-resolve.1 $(man1dir)/curl-resolve.1
 
 check: analyze test
 
