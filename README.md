@@ -1,13 +1,8 @@
-# ljcutils
-
-A collection of small command-line tools.
-
-## Tools
-
-### <code>$ <a href="bin/curl-resolve">curl-resolve</a></code>
+# curl-resolve
 
 Make a HTTP request to your web server before setting up DNS.
-Requires [curl][].
+
+This is a wrapper for [curl][].
 
 ```sh
 # Scenario: A web server is running at the address 12.34.56.78, and has been
@@ -20,22 +15,8 @@ curl-resolve 12.34.56.78 example.com http://example.com/test.html
 
 ## Install
 
-Clone this repo, and add the `bin` directory to your path. For example:
-
-```sh
-# Clone the repo
-git clone https://git.sr.ht/~ljc/utils
-
-# Add the following line to your .bash_profile or similar
-export PATH="$PATH:$HOME/path/to/utils/bin"
-```
-
-The scripts are self-contained, so you may also copy individual scripts from
-the `bin` directory. Make sure to set the executable bit, e.g.:
-
-```sh
-chmod +x /path/to/curl-resolve
-```
+Copy the `curl-resolve` file to a directory in your `$PATH`, e.g.
+`/usr/local/bin`.
 
 ## Development
 
