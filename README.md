@@ -1,15 +1,28 @@
 # curl-resolve
 
-Make a HTTP request to your web server before setting up DNS.
+Make a HTTP request without DNS.
 
-This is a wrapper for [curl][].
+## Description
 
-```sh
-# Scenario: A web server is running at the address 12.34.56.78, and has been
-# configured to serve the example.com domain. However, the DNS settings for
-# this domain have not yet propagated.
-#
-# Make a request to this domain using the server's IP address:
+**curl-resolve** is a tool to make HTTP requests without going through DNS.
+It is a wrapper for [curl][].
+
+curl-resolve is designed for one specific use case: testing that a web server
+is configured correctly before setting up DNS.
+
+## Example
+
+Suppose you are setting up a web server with the IP address 12.34.56.78, and
+you have configured it to serve HTTP requests for your new domain, example.com.
+Make a HTTP request with the command:
+
+```
+curl-resolve 12.34.56.78 example.com
+```
+
+You can specify a full URL after the domain:
+
+```
 curl-resolve 12.34.56.78 example.com http://example.com/test.html
 ```
 

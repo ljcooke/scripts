@@ -1,11 +1,17 @@
 SCRIPT = curl-resolve
+.DEFAULT_GOAL=check
 
-.PHONY: default analyze test
+%.1: %.1.scd
+	scdoc < $< > $@
 
-default: analyze test
+check: analyze test
 
 analyze:
 	shellcheck $(SCRIPT)
 
 test:
 	bats $(SCRIPT).bats
+
+man: $(SCRIPT).1
+
+.PHONY: check analyze test man
