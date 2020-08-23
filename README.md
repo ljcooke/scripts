@@ -12,6 +12,15 @@ is configured correctly before setting up DNS.
 
 ## Installation
 
+### Install with Homebrew (macOS)
+
+```
+brew tap ljc/utils https://git.sr.ht/~ljc/utils
+brew install curl-resolve
+```
+
+### Install from source
+
 Run: `make install`
 
 Pass `prefix` to specify a location:
