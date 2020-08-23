@@ -10,7 +10,21 @@ It is a wrapper for [curl][].
 curl-resolve is designed for one specific use case: testing that a web server
 is configured correctly before setting up DNS.
 
-## Example
+## Installation
+
+Run:
+
+```sh
+make install
+```
+
+Pass PREFIX to specify a location:
+
+```sh
+make PREFIX=/some/path install
+```
+
+## Examples
 
 Suppose you are setting up a web server with the IP address 12.34.56.78, and
 you have configured it to serve HTTP requests for your new domain, example.com.
@@ -26,23 +40,14 @@ You can specify a full URL after the domain:
 curl-resolve 12.34.56.78 example.com http://example.com/test.html
 ```
 
-## Install
-
-Copy the `curl-resolve` file to a directory in your `$PATH`, e.g.
-`/usr/local/bin`.
-
 ## Development
 
 This project uses [ShellCheck][shellcheck] for static analysis
 and [Bats][bats] for testing.
 
-- On macOS, you can install these using [Homebrew][brew]:
+On macOS, you can install these using [Homebrew][brew]: `brew install bats shellcheck`
 
-  ```sh
-  brew install bats shellcheck
-  ```
-
-Once these are installed, run `make` to analyse and test the code.
+Once these are installed, run `make check` to analyse and test the code.
 
 [bats]: https://github.com/sstephenson/bats
 [brew]: https://brew.sh/
