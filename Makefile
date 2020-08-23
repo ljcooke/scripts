@@ -1,9 +1,11 @@
+SCRIPT = curl-resolve
+
 .PHONY: default analyze test
 
 default: analyze test
 
 analyze:
-	shellcheck bin/*
+	shellcheck $(SCRIPT)
 
 test:
-	bats test
+	bats $(SCRIPT).bats

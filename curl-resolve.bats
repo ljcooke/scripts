@@ -1,10 +1,9 @@
 #!/usr/bin/env bats
 
-load test_helper
+export PATH="${BATS_TEST_DIRNAME}:${PATH}"
 
-setup() {
-  setup_dir
-}
+curl() { echo called curl "$@"; }
+export -f curl
 
 @test 'curl-resolve without arguments prints usage and fails' {
   run curl-resolve
