@@ -59,6 +59,7 @@ for src in *.* ; do
     echo "Skipping ${dst}"
   else
     echo -e "Converting ${src}"
+    tmpfile=.dither-wallpaper-tmp.png
     nice convert "$src" \
       -unsharp '0x5' -resize "${size}^" \
       -gravity 'center' -extent "$size" \
@@ -66,7 +67,8 @@ for src in *.* ; do
       -ordered-dither 'o8x8,6' \
       -colors "$colors" -depth 4 \
       -filter 'point' -resize "${scale}00%" \
-      -strip "PNG8:${dst}"
+      -strip "PNG8:${tmpfile}"
+    mv "$tmpfile" "$dst"
   fi
   echo 'Done'
 done
