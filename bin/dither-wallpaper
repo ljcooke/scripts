@@ -70,5 +70,5 @@ for src in *.* ; do
       -strip "PNG8:${tmpfile}"
     mv "$tmpfile" "$dst"
   fi
-  echo 'Done'
 done
+echo 'Done'
