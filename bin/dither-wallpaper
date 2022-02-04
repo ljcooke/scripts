@@ -30,6 +30,11 @@
 #
 #     DITHER_SIZE=480x270 ./dither-wallpaper
 #
+# Override the number of colors with DITHER_COLORS (default 16, max 256).
+# For example, to make images with 4 colors:
+#
+#     DITHER_COLORS=4 ./dither-wallpaper
+#
 #-------------------------------------------------------------------------------
 
 set -euo pipefail
