@@ -3,3 +3,7 @@
 source 'https://rubygems.org'
 
 gem 'chronic'
+
+group :test do
+  gem 'rubocop'
+end

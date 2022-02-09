@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
+
 #-------------------------------------------------------------------------------
 # isodate
 # MIT License, (c) 2022 Liam Cooke
@@ -28,7 +29,7 @@
 
 require 'date'
 
-begin; require 'chronic'; rescue LoadError; end
+begin; require 'chronic'; rescue LoadError; nil; end
 
 def chronic_parse(string)
   Chronic.parse(string, endian_precedence: :little)&.to_date
@@ -48,22 +49,25 @@ def format_date(date)
   date.strftime('%a %F')
 end
 
-def main
-  if ARGV.empty?
-    puts format_date(Date.today)
-    return true
-  end
-
+def main_with_args
   ARGV.each do |arg|
     date = parse(arg)
     if date
       puts format_date(date)
     else
-      STDERR.puts "Invalid date: #{arg}"
-      return false
+      warn "Invalid date: #{arg}"
+      return 1
     end
   end
-  true
+  nil
 end
 
-main || exit(1) if __FILE__ == $0
+def main_default
+  puts format_date(Date.today)
+end
+
+def main
+  ARGV.empty? ? main_default : main_with_args
+end
+
+exit(main || 0) if __FILE__ == $PROGRAM_NAME
