@@ -6,7 +6,8 @@
 # MIT License, (c) 2022 Liam Cooke
 #-------------------------------------------------------------
 #
-# Decode a string of 0s and 1s.
+# Basic binary decoder. Reads and decodes
+# a string of 0s and 1s from standard input.
 #
 # Example:
 #

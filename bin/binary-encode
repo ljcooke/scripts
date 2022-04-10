@@ -6,7 +6,8 @@
 # MIT License, (c) 2022 Liam Cooke
 #------------------------------------------------------------------
 #
-# Encode data as a string of 0s and 1s.
+# Basic binary encoder. Reads from standard input
+# and converts it to a string of 0s and 1s.
 #
 # Example:
 #

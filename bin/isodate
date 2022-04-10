@@ -6,8 +6,8 @@
 # MIT License, (c) 2022 Liam Cooke
 #-------------------------------------------------------------------------------
 #
-# Read dates from command line arguments, and print the weekdays and dates in
-# ISO 8601 format.
+# ISO date formatter. Reads dates from command line arguments,
+# and prints the weekdays and dates in ISO 8601 format.
 #
 # Example:
 #

@@ -3,7 +3,8 @@
 # MIT License, (c) 2022 Liam Cooke
 #-------------------------------------------------------------------------------
 #
-# Apply a 16-color dither effect to a folder of wallpaper images.
+# Low-res wallpaper creator. Reads images from a directory
+# and applies a 16-color dither effect.
 #
 # Instructions:
 #
