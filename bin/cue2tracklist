@@ -12,7 +12,7 @@
 #
 # Example:
 #
-#   $ cue2tracklist < 01\ REC-2022-04-09.cue
+#   $ cue2tracklist < examples/example.cue
 #   Silence Groove - Feel
 #   Silence Groove - Offset
 #   The Vagrant - This Is...
