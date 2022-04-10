@@ -67,7 +67,7 @@ class CueParser
   end
 
   def update_track(key, value)
-    @track[key] = value.match(/^".*"$/) ? value[1...-1] : value
+    @track[key] = value.match?(/^".*"$/) ? value[1...-1] : value
   end
 end
 
