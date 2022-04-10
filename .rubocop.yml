@@ -1,0 +1,10 @@
+# See https://docs.rubocop.org/rubocop/configuration
+
+AllCops:
+  Exclude:
+    - 'bin/binary-decode'
+    - 'bin/binary-encode'
+  NewCops: enable
+
+Style/Documentation:
+  Enabled: false
