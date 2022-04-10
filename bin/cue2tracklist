@@ -75,10 +75,19 @@ class CueFile
   end
 end
 
-cue_file = CueFile.parse($stdin)
-if cue_file.track_count > 0
+def main
+  if $stdin.tty?
+    warn "Usage: #{File.basename($PROGRAM_NAME)} < example.cue"
+    return 1
+  end
+
+  cue_file = CueFile.parse($stdin)
+  if cue_file.track_count.zero?
+    warn 'No tracks detected'
+    return 1
+  end
+
   puts cue_file
-else
-  warn 'No tracks detected'
-  exit 1
 end
+
+exit(main || 0) if __FILE__ == $PROGRAM_NAME
