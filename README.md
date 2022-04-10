@@ -18,31 +18,46 @@ These scripts should work as-is.
 They may have *optional* dependencies
 to provide extra functionality.
 
-### [`ljc-asc2bin`](doc/ljc-asc2bin.md)
+### `ljc-asc2bin`
 Basic binary encoder. Reads from standard input
 and converts it to a string of 0s and 1s.
 
-### [`ljc-bin2asc`](doc/ljc-bin2asc.md)
+([documentation](doc/ljc-asc2bin.md) |
+[source](bin/ljc-asc2bin))
+
+### `ljc-bin2asc`
 Basic binary decoder. Reads and decodes
 a string of 0s and 1s from standard input.
 
-### [`ljc-isodate`](doc/ljc-isodate.md)
+([documentation](doc/ljc-bin2asc.md) |
+[source](bin/ljc-bin2asc))
+
+### `ljc-isodate`
 ISO date formatter. Reads dates from command line arguments,
 and prints the weekdays and dates in ISO 8601 format.
+
+([documentation](doc/ljc-isodate.md) |
+[source](bin/ljc-isodate))
 
 ## Specialised scripts
 These are designed for specific use cases.
 They may have dependencies, which are documented below.
 
-### [`ljc-cue2tracklist`](doc/ljc-cue2tracklist.md)
+### `ljc-cue2tracklist`
 Naive cue file parser. Reads a cue file from standard input,
 and prints a plain text tracklist.
 Made for extracting tracklists from Rekordbox DJ recordings.
 
-### [`ljc-dither-wallpaper`](doc/ljc-dither-wallpaper.md)
+([documentation](doc/ljc-cue2tracklist.md) |
+[source](bin/ljc-cue2tracklist))
+
+### `ljc-dither-wallpaper`
 Low-res wallpaper creator. Reads images from a directory
 and applies a 16-color dither effect.
 Requires [ImageMagick](https://imagemagick.org/).
+
+([documentation](doc/ljc-dither-wallpaper.md) |
+[source](bin/ljc-dither-wallpaper))
 
 ## Other scripts
 Similar scripts by the author not included in this repo:
