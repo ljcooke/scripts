@@ -2,15 +2,17 @@
 # frozen_string_literal: true
 
 #-------------------------------------------------------------
-# bin2asc
+# binary-decode
 # MIT License, (c) 2022 Liam Cooke
 #-------------------------------------------------------------
 #
-# Binary string decoder. Example:
+# Decode a string of 0s and 1s.
+#
+# Example:
 #
 #   $ cat examples/binary.txt
 #   01001000 01100101 ...
-#   $ bin2asc < examples/binary.txt
+#   $ binary-decode < examples/binary.txt
 #   Hello, world.
 #
 #-------------------------------------------------------------
