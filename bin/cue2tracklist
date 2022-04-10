@@ -46,7 +46,7 @@ end
 def parse(file)
   seen = Set.new
   track = {}
-  $stdin.readlines.each do |line|
+  file.readlines.each do |line|
     key, value = parse_line(line.rstrip)
     case key
     when :track
