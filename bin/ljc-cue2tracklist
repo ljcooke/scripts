@@ -17,10 +17,16 @@ class CueFile
     new.parse(file)
   end
 
+  def initialize
+    @tracks = []
+    # Skip duplicates within the last N tracks
+    @recent_window = 4
+  end
+
   def parse(file)
     @tracks = []
     @track = {}
-    @seen = Set.new
+    @recent = []
 
     file.readlines.each { |line| parse_line(line.rstrip) }
     next_track
@@ -51,8 +57,9 @@ class CueFile
   end
 
   def next_track
-    tracks << @track unless @track.empty? || @seen.include?(@track)
-    @seen.add(@track)
+    tracks << @track unless @track.empty? || @recent.include?(@track)
+    @recent.shift unless @recent.size < @recent_window
+    @recent << @track
     @track = {}
   end
 
