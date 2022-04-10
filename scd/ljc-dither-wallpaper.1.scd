@@ -20,28 +20,33 @@ Create a directory named *input* and drop some images into it.
 Example:
 
 ```
-input/
-	hello.jpg
+$ tree
+.
+└── input
+    └── hello.jpg
 ```
 
-Run this script from the parent directory.
-Observe the results in the *output* directory.
-
-Example directory structure after running:
+Run *ljc-dither-wallpaper* from the parent directory,
+then observe the results in the *output* directory.
+Example:
 
 ```
-input/
-	hello.jpg
-output/
-	hello.jpg~16c@4x.png
+$ ljc-dither-wallpaper
+$ tree
+.
+├── input
+│   └── hello.jpg
+└── output
+    └── hello.jpg~16c@4x.png
 ```
 
-Each image is resized and cropped to 720x450,
-then scaled up 400% to match a screen resolution of 2880x1800.
-You can change the size
-by setting the environment variable _DITHER_SIZE_
+Each image is resized and cropped to fill a small canvas,
+then scaled up 400% with nearest-neighbour resizing.
+By default, images are resized to 720x450,
+then scaled up to 2880x1800.
+You can change the size by setting the environment variable _DITHER_SIZE_
 to a value of the form *WxH*, where *W* and *H*
-are 1/4 of the desired width and height respectively.
+are 1/4 of the final width and height respectively.
 
 Override the number of colors
 by setting the _DITHER_COLORS_ environment variable
@@ -52,7 +57,7 @@ to generate multiple images with different palettes.
 # EXAMPLES
 
 Generate images for a screen resolution of 1920x1080
-(i.e. 4x480 by 4x270):
+(or 4x480 by 4x270):
 
 ```
 DITHER_SIZE=480x270 ljc-dither-wallpaper

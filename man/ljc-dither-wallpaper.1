@@ -28,31 +28,36 @@ Example:
 .P
 .nf
 .RS 4
-input/
-	hello\&.jpg
+$ tree
+\&.
+└── input
+    └── hello\&.jpg
 .fi
 .RE
 .P
-Run this script from the parent directory.\&
-Observe the results in the \fBoutput\fR directory.\&
-.P
-Example directory structure after running:
+Run \fBljc-dither-wallpaper\fR from the parent directory,
+then observe the results in the \fBoutput\fR directory.\&
+Example:
 .P
 .nf
 .RS 4
-input/
-	hello\&.jpg
-output/
-	hello\&.jpg~16c@4x\&.png
+$ ljc-dither-wallpaper
+$ tree
+\&.
+├── input
+│   └── hello\&.jpg
+└── output
+    └── hello\&.jpg~16c@4x\&.png
 .fi
 .RE
 .P
-Each image is resized and cropped to 720x450,
-then scaled up 400% to match a screen resolution of 2880x1800.\&
-You can change the size
-by setting the environment variable \fIDITHER_SIZE\fR
+Each image is resized and cropped to fill a small canvas,
+then scaled up 400% with nearest-neighbour resizing.\&
+By default, images are resized to 720x450,
+then scaled up to 2880x1800.\&
+You can change the size by setting the environment variable \fIDITHER_SIZE\fR
 to a value of the form \fBWxH\fR, where \fBW\fR and \fBH\fR
-are 1/4 of the desired width and height respectively.\&
+are 1/4 of the final width and height respectively.\&
 .P
 Override the number of colors
 by setting the \fIDITHER_COLORS\fR environment variable
@@ -63,7 +68,7 @@ to generate multiple images with different palettes.\&
 .SH EXAMPLES
 .P
 Generate images for a screen resolution of 1920x1080
-(i.\&e.\& 4 times 480x270):
+(or 4x480 by 4x270):
 .P
 .nf
 .RS 4
