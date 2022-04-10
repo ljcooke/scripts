@@ -14,7 +14,7 @@ all:
 .PHONY: build test doc lint
 
 doc/%.md: doc/%.1
-	$(PANDOC) $< > $@
+	$(PANDOC) -f man -t markdown $< > $@
 
 doc/%.1: doc/%.1.scd
 	$(SCDOC) < $< > $@
