@@ -1,16 +1,26 @@
 BUNDLE = bundle
+PANDOC = pandoc
 SCDOC = scdoc
 
-.DEFAULT_GOAL = default
-.PHONY: all doc lint
+# --- User ---
+
+.DEFAULT_GOAL = all
+.PHONY: all
+
+all:
+
+# --- Development ---
+
+.PHONY: build test doc lint
 
 doc/%.md: man/%.1
-	pandoc $< > $@
+	$(PANDOC) $< > $@
 
 man/%.1: scd/%.1.scd
 	$(SCDOC) < $< > $@
 
-default: doc lint
+build: doc test
+test: lint
 
 doc: man \
 	doc/ljc-asc2bin.md \
