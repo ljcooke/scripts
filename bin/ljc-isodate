@@ -1,30 +1,12 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-#-------------------------------------------------------------------------------
-# ljc-isodate
+# ljc-isodate - ISO date formatter
 # MIT License, (c) 2022 Liam Cooke
-#-------------------------------------------------------------------------------
 #
-# ISO date formatter. Reads dates from command line arguments,
-# and prints the weekdays and dates in ISO 8601 format.
-#
-# Example:
-#
-#   $ ljc-isodate '1 Feb 2022' '27/07/1987'
-#   Tue 2022-02-01
-#   Mon 1987-07-27
-#
-# Supports natural language parsing if the Chronic gem is installed. Example:
-#
-#   $ gem install chronic
-#   $ ljc-isodate yesterday tomorrow '30 days ago' 'this friday'
-#   Tue 2022-02-08
-#   Thu 2022-02-10
-#   Mon 2022-01-10
-#   Fri 2022-02-11
-#
-#-------------------------------------------------------------------------------
+# Reads dates from command line arguments, and prints the weekdays and dates
+# in ISO 8601 format. Supports natural language parsing if the Chronic gem
+# is installed.
 
 require 'date'
 

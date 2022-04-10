@@ -1,48 +1,9 @@
 #!/usr/bin/env bash
 
-#-------------------------------------------------------------------------------
-# ljc-dither-wallpaper
+# ljc-dither-wallpaper - low-res wallpaper creator
 # MIT License, (c) 2022 Liam Cooke
-#-------------------------------------------------------------------------------
 #
-# Low-res wallpaper creator. Reads images from a directory
-# and applies a 16-color dither effect.
-#
-# Instructions:
-#
-#  1. Save this script somewhere and make it executable:
-#     `chmod +x ljc-dither-wallpaper`
-#  2. Create a directory named 'input' and drop some images into it.
-#  3. Run this script from the parent directory.
-#  4. Observe the results in the 'output' directory.
-#
-# Example directory structure:
-#
-#     input/
-#       hello.jpg
-#     ljc-dither-wallpaper
-#     output/
-#       hello.jpg~16c@4x.png
-#
-# Each image is resized and cropped to 720x450, then scaled up 400% to match
-# a screen resolution of 2880x1800. You can change the size by setting the
-# environment variable DITHER_SIZE to a value of the form WxH, where W and
-# H are 1/4 of the desired width and height.
-#
-# For example, for a screen resolution of 1920x1080, run:
-#
-#     DITHER_SIZE=480x270 ./ljc-dither-wallpaper
-#
-# Override the number of colors with DITHER_COLORS (default 16, max 256).
-# This can be a space-separated list, to generate multiple images with
-# different palettes.
-#
-# For example, the following will generate one 4-color image and one 16-color
-# image for each source image:
-#
-#     DITHER_COLORS='4 16' ./ljc-dither-wallpaper
-#
-#-------------------------------------------------------------------------------
+# Reads images from a directory and applies a 16-color dither effect.
 
 set -euo pipefail
 

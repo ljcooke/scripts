@@ -1,19 +1,7 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-#------------------------------------------------------------------
-# ljc-asc2bin
+# ljc-asc2bin - binary text encoder
 # MIT License, (c) 2022 Liam Cooke
-#------------------------------------------------------------------
-#
-# Basic binary encoder. Reads from standard input
-# and converts it to a string of 0s and 1s.
-#
-# Example:
-#
-#   $ ljc-asc2bin <<< 'Hello, world.'
-#   01001000 01100101 01101100 01101100 01101111 ...
-#
-#------------------------------------------------------------------
 
 $<.read.bytes.map{|b|'%08d'%b.to_s(2)}.each_slice(8){|s|puts s*' '}

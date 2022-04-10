@@ -1,26 +1,12 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-#-------------------------------------------------------------------------------
-# ljc-cue2tracklist
+# ljc-cue2tracklist - extract tracklist from cue file
 # MIT License, (c) 2022 Liam Cooke
-#-------------------------------------------------------------------------------
 #
 # Naive cue file parser. Reads a cue file from standard input, and prints
 # a plain text tracklist. Made for a specific use case: extracting tracklists
 # from Rekordbox DJ recordings.
-#
-# Example:
-#
-#   $ ljc-cue2tracklist < examples/example.cue
-#   Silence Groove - Feel
-#   Silence Groove - Offset
-#   The Vagrant - This Is...
-#   Dead Man's Chest - Westworld
-#   Eusebeia - Vision
-#   Paradox - Isotoxal
-#
-#-------------------------------------------------------------------------------
 
 require 'set'
 

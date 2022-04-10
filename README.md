@@ -1,8 +1,7 @@
 # Scripts
-An assortment of standalone scripts,
-written in Ruby and Bash.
-Available on [Codeberg](https://codeberg.org/ljc/scripts)
-and [GitHub](https://github.com/ljcooke/scripts).
+An assortment of scripts, written in Ruby and Bash.
+
+Scripts are documented in the [doc](doc/) directory.
 
 ## Install
 - **Pick & Choose**:
@@ -14,34 +13,42 @@ and [GitHub](https://github.com/ljcooke/scripts).
   Clone this repo with `git`,
   and add the full path to the `bin` directory to `$PATH`.
 
-Read the comment block at the top of each script
-for additional instructions and examples.
-Some scripts have *optional* dependencies,
-which are also documented in the comment block.
+## General-purpose scripts
+These scripts should work as-is.
+They may have *optional* dependencies
+to provide extra functionality.
 
-## General purpose scripts
-### [`ljc-asc2bin`](bin/ljc-asc2bin)
+### [`ljc-asc2bin`](doc/ljc-asc2bin.md)
 Basic binary encoder. Reads from standard input
 and converts it to a string of 0s and 1s.
 
-### [`ljc-bin2asc`](bin/ljc-bin2asc)
+### [`ljc-bin2asc`](doc/ljc-bin2asc.md)
 Basic binary decoder. Reads and decodes
 a string of 0s and 1s from standard input.
 
-### [`ljc-isodate`](ljc-bin/isodate)
+### [`ljc-isodate`](doc/ljc-isodate.md)
 ISO date formatter. Reads dates from command line arguments,
 and prints the weekdays and dates in ISO 8601 format.
 
 ## Specialised scripts
-### [`ljc-cue2tracklist`](ljc-bin/cue2tracklist)
-Naive cue file parser. Reads a cue file from standard input, and prints
-a plain text tracklist. Made for a specific use case: extracting tracklists
-from Rekordbox DJ recordings.
+These are designed for specific use cases.
+They may have dependencies, which are documented below.
 
-### [`ljc-dither-wallpaper`](bin/ljc-dither-wallpaper)
+### [`ljc-cue2tracklist`](doc/ljc-cue2tracklist.md)
+Naive cue file parser. Reads a cue file from standard input,
+and prints a plain text tracklist.
+Made for extracting tracklists from Rekordbox DJ recordings.
+
+### [`ljc-dither-wallpaper`](doc/ljc-dither-wallpaper.md)
 Low-res wallpaper creator. Reads images from a directory
 and applies a 16-color dither effect.
+Requires [ImageMagick](https://imagemagick.org/).
 
 ## License
 [MIT License](LICENSE)<br>
 Copyright (c) 2022 Liam Cooke
+
+## Source
+The source code is available
+on [Codeberg](https://codeberg.org/ljc/scripts)
+and [GitHub](https://github.com/ljcooke/scripts).
