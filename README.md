@@ -44,8 +44,14 @@ Low-res wallpaper creator. Reads images from a directory
 and applies a 16-color dither effect.
 Requires [ImageMagick](https://imagemagick.org/).
 
+## Other scripts
+Similar scripts by the author not included in this repo:
+
+- [curl-resolve](https://git.sr.ht/~ljc/curl-resolve)
+
 ## License
-[MIT License](LICENSE)<br>
+[MIT License](LICENSE)
+
 Copyright (c) 2022 Liam Cooke
 
 ## Source
