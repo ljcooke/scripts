@@ -24,7 +24,7 @@
 
 require 'set'
 
-class CueParser
+class CueFile
   attr_reader :tracks
 
   def self.parse(file)
@@ -49,6 +49,10 @@ class CueParser
     end.join("\n")
   end
 
+  def track_count
+    tracks.size
+  end
+
   private
 
   def parse_line(line)
@@ -71,4 +75,10 @@ class CueParser
   end
 end
 
-puts CueParser.parse($stdin)
+cue_file = CueFile.parse($stdin)
+if cue_file.track_count > 0
+  puts cue_file
+else
+  warn 'No tracks detected'
+  exit 1
+end
