@@ -20,25 +20,25 @@ Some scripts have *optional* dependencies,
 which are also documented in the comment block.
 
 ## General purpose scripts
-### [`binary-decode`](bin/binary-decode)
-Basic binary decoder. Reads and decodes
-a string of 0s and 1s from standard input.
-
-### [`binary-encode`](bin/binary-encode)
+### [`ljc-asc2bin`](bin/ljc-asc2bin)
 Basic binary encoder. Reads from standard input
 and converts it to a string of 0s and 1s.
 
-### [`isodate`](bin/isodate)
+### [`ljc-bin2asc`](bin/ljc-bin2asc)
+Basic binary decoder. Reads and decodes
+a string of 0s and 1s from standard input.
+
+### [`ljc-isodate`](ljc-bin/isodate)
 ISO date formatter. Reads dates from command line arguments,
 and prints the weekdays and dates in ISO 8601 format.
 
 ## Specialised scripts
-### [`cue2tracklist`](bin/cue2tracklist)
+### [`ljc-cue2tracklist`](ljc-bin/cue2tracklist)
 Naive cue file parser. Reads a cue file from standard input, and prints
 a plain text tracklist. Made for a specific use case: extracting tracklists
 from Rekordbox DJ recordings.
 
-### [`dither-wallpaper`](bin/dither-wallpaper)
+### [`ljc-dither-wallpaper`](bin/ljc-dither-wallpaper)
 Low-res wallpaper creator. Reads images from a directory
 and applies a 16-color dither effect.
 

@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 #-------------------------------------------------------------
-# binary-decode
+# ljc-bin2asc
 # MIT License, (c) 2022 Liam Cooke
 #-------------------------------------------------------------
 #
@@ -13,7 +13,7 @@
 #
 #   $ cat examples/binary.txt
 #   01001000 01100101 ...
-#   $ binary-decode < examples/binary.txt
+#   $ ljc-bin2asc < examples/binary.txt
 #   Hello, world.
 #
 #-------------------------------------------------------------

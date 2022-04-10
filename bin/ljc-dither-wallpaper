@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-# dither-wallpaper
+
+#-------------------------------------------------------------------------------
+# ljc-dither-wallpaper
 # MIT License, (c) 2022 Liam Cooke
 #-------------------------------------------------------------------------------
 #
@@ -9,16 +11,16 @@
 # Instructions:
 #
 #  1. Save this script somewhere and make it executable:
-#     `chmod +x dither-wallpaper`
+#     `chmod +x ljc-dither-wallpaper`
 #  2. Create a directory named 'input' and drop some images into it.
 #  3. Run this script from the parent directory.
 #  4. Observe the results in the 'output' directory.
 #
 # Example directory structure:
 #
-#     dither-wallpaper
 #     input/
 #       hello.jpg
+#     ljc-dither-wallpaper
 #     output/
 #       hello.jpg~16c@4x.png
 #
@@ -29,7 +31,7 @@
 #
 # For example, for a screen resolution of 1920x1080, run:
 #
-#     DITHER_SIZE=480x270 ./dither-wallpaper
+#     DITHER_SIZE=480x270 ./ljc-dither-wallpaper
 #
 # Override the number of colors with DITHER_COLORS (default 16, max 256).
 # This can be a space-separated list, to generate multiple images with
@@ -38,7 +40,7 @@
 # For example, the following will generate one 4-color image and one 16-color
 # image for each source image:
 #
-#     DITHER_COLORS='4 16' ./dither-wallpaper
+#     DITHER_COLORS='4 16' ./ljc-dither-wallpaper
 #
 #-------------------------------------------------------------------------------
 

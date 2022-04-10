@@ -2,8 +2,8 @@
 
 AllCops:
   Exclude:
-    - 'bin/binary-decode'
-    - 'bin/binary-encode'
+    - 'bin/ljc-asc2bin'
+    - 'bin/ljc-bin2asc'
   NewCops: enable
 
 Style/Documentation:

@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 #-------------------------------------------------------------------------------
-# cue2tracklist
+# ljc-cue2tracklist
 # MIT License, (c) 2022 Liam Cooke
 #-------------------------------------------------------------------------------
 #
@@ -12,7 +12,7 @@
 #
 # Example:
 #
-#   $ cue2tracklist < examples/example.cue
+#   $ ljc-cue2tracklist < examples/example.cue
 #   Silence Groove - Feel
 #   Silence Groove - Offset
 #   The Vagrant - This Is...
