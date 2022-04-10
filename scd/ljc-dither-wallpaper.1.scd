@@ -35,7 +35,7 @@ $ ljc-dither-wallpaper
 $ tree
 .
 ├── input
-│   └── hello.jpg
+│   └── hello.jpg
 └── output
     └── hello.jpg~16c@4x.png
 ```
@@ -44,30 +44,36 @@ Each image is resized and cropped to fill a small canvas,
 then scaled up 400% with nearest-neighbour resizing.
 By default, images are resized to 720x450,
 then scaled up to 2880x1800.
-You can change the size by setting the environment variable _DITHER_SIZE_
-to a value of the form *WxH*, where *W* and *H*
-are 1/4 of the final width and height respectively.
 
-Override the number of colors
-by setting the _DITHER_COLORS_ environment variable
-(default 16, max 256).
-This can be a space-separated list,
-to generate multiple images with different palettes.
+# ENVIRONMENT
+
+The following environment variables
+affect the execution of *ljc-dither-wallpaper*:
+
+*DITHER_COLORS*
+	Override the number of colors (default *16*, maximum *256*).
+	This may be set to a space-separated list,
+	to generate multiple images with different palettes.
+
+*DITHER_SIZE*
+	Change the image size. Set this to a value of the form *WxH*,
+	where *W* and *H* are one quarter
+	of the final width and height respectively.
 
 # EXAMPLES
-
-Generate images for a screen resolution of 1920x1080
-(or 4x480 by 4x270):
-
-```
-DITHER_SIZE=480x270 ljc-dither-wallpaper
-```
 
 Generate one 4-color image and one 16-color image
 for each source image:
 
 ```
-DITHER_COLORS='4 16' ljc-dither-wallpaper
+$ DITHER_COLORS='4 16' ljc-dither-wallpaper
+```
+
+Generate images for a screen resolution of 1920x1080
+(i.e 4x480 width and 4x270 height):
+
+```
+$ DITHER_SIZE=480x270 ljc-dither-wallpaper
 ```
 
 # SEE ALSO
