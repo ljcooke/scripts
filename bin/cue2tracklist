@@ -24,48 +24,51 @@
 
 require 'set'
 
-def cue_string(value)
-  value.match(/^".*"$/) ? value[1...-1] : value
-end
+class CueParser
+  attr_reader :tracks
 
-def parse_line(line)
-  info = line.match(/^\s+(TRACK|TITLE|PERFORMER)\s(.+)$/)
-
-  case info && info[1]
-  when 'TRACK'
-    [:track, nil]
-  when 'PERFORMER'
-    [:artist, cue_string(info[2])]
-  when 'TITLE'
-    [:title, cue_string(info[2])]
-  else
-    [nil, nil]
+  def self.parse(file)
+    new.parse(file)
   end
-end
 
-def parse(file)
-  seen = Set.new
-  track = {}
-  file.readlines.each do |line|
-    key, value = parse_line(line.rstrip)
-    case key
-    when :track
-      yield track unless track.empty? || seen.include?(track)
-      seen.add(track)
-      track = {}
-    when :artist, :title
-      track[key] = value
+  def parse(file)
+    @tracks = []
+    @track = {}
+    @seen = Set.new
+
+    file.readlines.each { |line| parse_line(line.rstrip) }
+    next_track
+    self
+  end
+
+  def to_s
+    tracks.map do |track|
+      artist = track.fetch(:artist, '?')
+      title = track.fetch(:title, '?')
+      "#{artist} - #{title}"
+    end.join("\n")
+  end
+
+  private
+
+  def parse_line(line)
+    info = line.match(/^\s+(?<key>\w+) (?<value>.+)$/)
+    case info && info[:key]
+    when 'TRACK' then next_track
+    when 'PERFORMER' then update_track(:artist, info[:value])
+    when 'TITLE' then update_track(:title, info[:value])
     end
   end
-  yield track unless track.empty? || seen.include?(track)
+
+  def next_track
+    tracks << @track unless @track.empty? || @seen.include?(@track)
+    @seen.add(@track)
+    @track = {}
+  end
+
+  def update_track(key, value)
+    @track[key] = value.match(/^".*"$/) ? value[1...-1] : value
+  end
 end
 
-def format_track(track)
-  artist = track.fetch(:artist, '?')
-  title = track.fetch(:title, '?')
-  "#{artist} - #{title}"
-end
-
-parse($stdin) do |track|
-  puts format_track(track)
-end
+puts CueParser.parse($stdin)
