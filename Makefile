@@ -1,6 +1,7 @@
 BUNDLE = bundle
 PANDOC = pandoc
 SCDOC = scdoc
+SHELLCHECK = shellcheck
 
 # --- User ---
 
@@ -11,30 +12,44 @@ all:
 
 # --- Development ---
 
-.PHONY: build test doc lint
-
 doc/%.md: doc/%.1
 	$(PANDOC) -f man -t markdown $< > $@
 
 doc/%.1: doc/%.1.scd
 	$(SCDOC) < $< > $@
 
-build: doc test
-test: lint
+.PHONY: build
+build: doc check
 
 doc: man \
 	doc/ljc-asc2bin.md \
 	doc/ljc-bin2asc.md \
 	doc/ljc-cue2tracklist.md \
+	doc/ljc-curl-resolve.md \
 	doc/ljc-dither-wallpaper.md \
 	doc/ljc-isodate.md
-
 man: \
 	doc/ljc-asc2bin.1 \
 	doc/ljc-bin2asc.1 \
 	doc/ljc-cue2tracklist.1 \
+	doc/ljc-curl-resolve.1 \
 	doc/ljc-dither-wallpaper.1 \
 	doc/ljc-isodate.1
 
-lint:
+.PHONY: check
+check: analyze test
+
+.PHONY: analyze analyze-rb analyze-sh
+analyze: analyze-rb analyze-sh
+analyze-rb:
 	$(BUNDLE) exec rubocop
+analyze-sh:
+	$(SHELLCHECK) \
+		bin/ljc-curl-resolve \
+		bin/ljc-dither-wallpaper
+
+.PHONY: test test-rb test-sh
+test: test-rb test-sh
+test-rb:
+test-sh:
+	test/run-tests.sh

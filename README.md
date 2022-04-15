@@ -51,6 +51,14 @@ Made for extracting tracklists from Rekordbox DJ recordings.
 ([documentation](doc/ljc-cue2tracklist.md) |
 [source](bin/ljc-cue2tracklist))
 
+### `ljc-curl-resolve`
+Make a HTTP request without DNS.
+This is a wrapper for [curl](https://curl.se/) designed for one use case:
+testing that a web server is configured correctly before setting up DNS.
+
+([documentation](doc/ljc-curl-resolve.md) |
+[source](bin/ljc-curl-resolve))
+
 ### `ljc-dither-wallpaper`
 Low-res wallpaper creator. Reads images from a directory
 and applies a 16-color dither effect.
@@ -59,15 +67,10 @@ Requires [ImageMagick](https://imagemagick.org/).
 ([documentation](doc/ljc-dither-wallpaper.md) |
 [source](bin/ljc-dither-wallpaper))
 
-## Other scripts
-Similar scripts by the author not included in this repo:
-
-- [curl-resolve](https://git.sr.ht/~ljc/curl-resolve)
-
 ## License
 [MIT License](LICENSE)
 
-Copyright (c) 2022 Liam Cooke
+Copyright (c) 2019–2022 Liam Cooke
 
 ## Source
 The source code is available
