@@ -2,8 +2,8 @@
 
 set -euo pipefail
 
-if [ -d 'test' ]; then
-  cd 'test'
+if [ -d 'test/sh' ]; then
+  cd 'test/sh'
 fi
 
 for f in *.bats ; do

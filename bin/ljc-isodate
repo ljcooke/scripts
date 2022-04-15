@@ -47,8 +47,8 @@ def main_default
   puts format_date(Date.today)
 end
 
-def main
-  ARGV.empty? ? main_default : main_with_args
+def main(args)
+  args.empty? ? main_default : main_with_args
 end
 
-exit(main || 0) if __FILE__ == $PROGRAM_NAME
+exit(main(ARGV) || 0) if __FILE__ == $PROGRAM_NAME

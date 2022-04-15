@@ -44,12 +44,12 @@ analyze: analyze-rb analyze-sh
 analyze-rb:
 	$(BUNDLE) exec rubocop
 analyze-sh:
-	$(SHELLCHECK) \
-		bin/ljc-curl-resolve \
-		bin/ljc-dither-wallpaper
+	$(SHELLCHECK) bin/ljc-curl-resolve
+	$(SHELLCHECK) bin/ljc-dither-wallpaper
 
 .PHONY: test test-rb test-sh
 test: test-rb test-sh
 test-rb:
+	$(BUNDLE) exec rspec
 test-sh:
-	test/run-tests.sh
+	test/sh/run-tests.sh
